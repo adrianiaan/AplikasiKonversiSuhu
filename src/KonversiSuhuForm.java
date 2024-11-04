@@ -25,21 +25,124 @@ public class KonversiSuhuForm extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
+        txtSuhuInput = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        cmbSkalaAwal = new javax.swing.JComboBox<>();
+        rCelcius = new javax.swing.JRadioButton();
+        rFahrenheit = new javax.swing.JRadioButton();
+        rReamur = new javax.swing.JRadioButton();
+        rKelvin = new javax.swing.JRadioButton();
+        buttonKonversi = new javax.swing.JButton();
+        txtHasil = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 278, Short.MAX_VALUE)
-        );
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Aplikasi Konversi Suhu", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Roboto", 1, 18), new java.awt.Color(51, 153, 255))); // NOI18N
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        txtSuhuInput.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 10, 2, 10);
+        jPanel1.add(txtSuhuInput, gridBagConstraints);
+
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel1.setText("Masukkan Suhu:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(2, 10, 2, 10);
+        jPanel1.add(jLabel1, gridBagConstraints);
+
+        jLabel2.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLabel2.setText("Hasil Konversi:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(2, 10, 2, 10);
+        jPanel1.add(jLabel2, gridBagConstraints);
+
+        cmbSkalaAwal.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 10, 2, 10);
+        jPanel1.add(cmbSkalaAwal, gridBagConstraints);
+
+        buttonGroup1.add(rCelcius);
+        rCelcius.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        rCelcius.setText("Celcius ke Skala lain");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 10, 2, 10);
+        jPanel1.add(rCelcius, gridBagConstraints);
+
+        buttonGroup1.add(rFahrenheit);
+        rFahrenheit.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        rFahrenheit.setText("Fahrenheit ke Skala lain");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 10, 2, 10);
+        jPanel1.add(rFahrenheit, gridBagConstraints);
+
+        buttonGroup1.add(rReamur);
+        rReamur.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        rReamur.setText("Reamur ke Skala lain");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 10, 2, 10);
+        jPanel1.add(rReamur, gridBagConstraints);
+
+        buttonGroup1.add(rKelvin);
+        rKelvin.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        rKelvin.setText("Kelvin ke Skala lain");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 10, 2, 10);
+        jPanel1.add(rKelvin, gridBagConstraints);
+
+        buttonKonversi.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        buttonKonversi.setText("Konversi");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 10, 2, 10);
+        jPanel1.add(buttonKonversi, gridBagConstraints);
+
+        txtHasil.setEditable(false);
+        txtHasil.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(2, 10, 2, 10);
+        jPanel1.add(txtHasil, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -54,7 +157,7 @@ public class KonversiSuhuForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -97,6 +200,17 @@ public class KonversiSuhuForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton buttonKonversi;
+    private javax.swing.JComboBox<String> cmbSkalaAwal;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton rCelcius;
+    private javax.swing.JRadioButton rFahrenheit;
+    private javax.swing.JRadioButton rKelvin;
+    private javax.swing.JRadioButton rReamur;
+    private javax.swing.JTextField txtHasil;
+    private javax.swing.JTextField txtSuhuInput;
     // End of variables declaration//GEN-END:variables
 }
