@@ -113,14 +113,131 @@ Aplikasi ini menggunakan komponen berikut:
 ### 3. Events  
    - **ActionListener**: Untuk memproses konversi ketika tombol **Konversi** ditekan.  
      ```java
-     private void buttonKonversiActionPerformed(java.awt.event.ActionEvent evt) { 
-         // Logika konversi
-     }
+           private void buttonKonversiActionPerformed(java.awt.event.ActionEvent evt) {
+          if (cmbKonversi.getSelectedItem() == null) {
+              JOptionPane.showMessageDialog(this, "Pilih arah konversi terlebih dahulu.");
+              return;
+          }
+          try {
+              double inputSuhu = Double.parseDouble(txtInputSuhu.getText());
+              String pilihanKonversi = (String) cmbKonversi.getSelectedItem();
+              double hasil = 0.0;
+      
+              if (rCelcius.isSelected()) {
+                  switch (pilihanKonversi) {
+                      case "Celsius ke Fahrenheit":
+                          hasil = celsiusKeFahrenheit(inputSuhu);
+                          break;
+                      case "Celsius ke Kelvin":
+                          hasil = celsiusKeKelvin(inputSuhu);
+                          break;
+                      case "Celsius ke Reamur":
+                          hasil = celsiusKeReamur(inputSuhu);
+                          break;
+                      default:
+                          JOptionPane.showMessageDialog(this, "Pilihan konversi tidak valid!");
+                          break;
+                  }
+              } else if (rFahrenheit.isSelected()) {
+                  switch (pilihanKonversi) {
+                      case "Fahrenheit ke Celsius":
+                          hasil = fahrenheitKeCelsius(inputSuhu);
+                          break;
+                      case "Fahrenheit ke Kelvin":
+                          hasil = fahrenheitKeKelvin(inputSuhu);
+                          break;
+                      case "Fahrenheit ke Reamur":
+                          hasil = fahrenheitKeReamur(inputSuhu);
+                          break;
+                      default:
+                          JOptionPane.showMessageDialog(this, "Pilihan konversi tidak valid!");
+                          break;
+                  }
+              } else if (rKelvin.isSelected()) {
+                  switch (pilihanKonversi) {
+                      case "Kelvin ke Celsius":
+                          hasil = kelvinKeCelsius(inputSuhu);
+                          break;
+                      case "Kelvin ke Fahrenheit":
+                          hasil = kelvinKeFahrenheit(inputSuhu);
+                          break;
+                      case "Kelvin ke Reamur":
+                          hasil = kelvinKeReamur(inputSuhu);
+                          break;
+                      default:
+                          JOptionPane.showMessageDialog(this, "Pilihan konversi tidak valid!");
+                          break;
+                  }
+              } else if (rReamur.isSelected()) {
+                  switch (pilihanKonversi) {
+                      case "Reamur ke Celsius":
+                          hasil = reamurKeCelsius(inputSuhu);
+                          break;
+                      case "Reamur ke Fahrenheit":
+                          hasil = reamurKeFahrenheit(inputSuhu);
+                          break;
+                      case "Reamur ke Kelvin":
+                          hasil = reamurKeKelvin(inputSuhu);
+                          break;
+                      default:
+                          JOptionPane.showMessageDialog(this, "Pilihan konversi tidak valid!");
+                          break;
+                  }
+              }
+      
+              txtHasil.setText(String.valueOf(hasil));
+          } catch (NumberFormatException e) {
+              JOptionPane.showMessageDialog(this, "Masukkan angka yang benar!");
+          }
+      }
      ```
-   - **KeyAdapter**: Membatasi input hanya angka.  
-   - **DocumentListener**: Untuk memperbarui hasil konversi secara otomatis.  
+   - **KeyAdapter**: Membatasi input hanya angka.
+     ```java
+      private void txtInputSuhuKeyTyped(java.awt.event.KeyEvent evt) {
+          char c = evt.getKeyChar();
+          if (!Character.isDigit(c) && c != '.') {
+              evt.consume();
+          }
+      }
+      ```
+   - **DocumentListener**: Untuk memperbarui hasil konversi secara otomatis.
+     ```java
+      txtInputSuhu.getDocument().addDocumentListener(new DocumentListener() {
+          @Override
+          public void insertUpdate(DocumentEvent e) {
+              lakukanKonversiOtomatis();
+          }
+      
+          @Override
+          public void removeUpdate(DocumentEvent e) {
+              lakukanKonversiOtomatis();
+          }
+      
+          @Override
+          public void changedUpdate(DocumentEvent e) {
+              lakukanKonversiOtomatis();
+          }
+      });
+      
+      private void lakukanKonversiOtomatis() {
+          if (!txtInputSuhu.getText().trim().isEmpty()) {
+              buttonKonversiActionPerformed(null);
+          } else {
+              txtHasil.setText("");
+          }
+      }
+      ```
    - **ItemListener**: Untuk memperbarui pilihan arah konversi berdasarkan skala awal yang dipilih.
-
+     ```java
+      private void rCelciusItemStateChanged(java.awt.event.ItemEvent evt) {
+          if (evt.getStateChange() == ItemEvent.SELECTED) {
+              cmbKonversi.removeAllItems();
+              cmbKonversi.addItem("Celsius ke Fahrenheit");
+              cmbKonversi.addItem("Celsius ke Kelvin");
+              cmbKonversi.addItem("Celsius ke Reamur");
+          }
+      }
+      ```
 ---
 
 ## Cara Menjalankan Aplikasi
